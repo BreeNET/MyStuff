@@ -50,7 +50,7 @@ It runs existing batch files to regenerate the sales files, then it copies the s
 
 Background: 
 
-"Markdowns" is a process in which employees walk around the store with wireless barcode scanners scanning every item to see if the price has been lowered. Store ratings and bonuses are based on their markdown accuracy so this is an important event to the employees. Prior to starting their markdowns, stores will call us to "refresh markdowns" which consists of rebooting access points, deleting connection state files from the server the units communicate with, and rebooting the server itself. This script just gets it done in one click. 
+"Markdowns" is a process in which employees walk around the store with wireless barcode scanners scanning every item to see if the price has been lowered. Store ratings and bonuses are based on their markdown accuracy so this is an important event to the employees. Prior to starting their markdowns, stores will call us to "refresh markdowns" which consists of rebooting access points, deleting connection state files from the server the units communicate with, and rebooting the server itself. There was no accessible API for the access points so we still had to log in manually and do that but this script does the rest in one click. 
 
 
 
