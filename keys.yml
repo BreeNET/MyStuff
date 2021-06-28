@@ -1,0 +1,74 @@
+- hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks: 
+        
+    - name: Generate an OpenSSH keypair
+      community.crypto.openssh_keypair:
+        path: "/{{ ansible_env.HOME }}/.ssh/privkey"
+        type: rsa
+        comment: "KEY_{{ ansible_env.HOME }}_{{ ansible_date_time.date }}"
+        
+    - name: Convert to pem
+      become: true
+      shell: ssh-keygen -e -m pem -f "{{ ansible_env.HOME }}/.ssh/privkey"
+      
+    - name: Download privkey to ansible/keys/
+      fetch:
+        src: "{{ ansible_env.HOME }}/.ssh/privkey"
+        dest: /etc/ansible/keys/{{inventory_hostname}}/privkey.pem
+        flat: yes
+        
+    - name: Download pubkey to ansible/keys/
+      fetch:
+        src: /{{ ansible_env.HOME }}/.ssh/privkey.pub
+        dest: /etc/ansible/keys/{{inventory_hostname}}/privkey.pub
+        flat: yes       
+        
+    - name: Delete any existing key from host
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /{{ ansible_env.HOME }}/.ssh/privkey.pem
+        - /{{ ansible_env.HOME }}/.ssh/privkey.pem.pub 
+        - /{{ ansible_env.HOME }}/.ssh/privkey 
+        - /{{ ansible_env.HOME }}/.ssh/privkey.pub 
+        
+    - name: Set authorized key from file
+      authorized_key:
+        state: present
+        user: "{{ ansible_user_id }}"
+        key: "{{ lookup('file', '/etc/ansible/keys/{{inventory_hostname}}/privkey.pub') }}" 
+        exclusive: true
+        
+    - name: Restart SSH
+      become: true
+      service:
+        name: sshd
+        state: restarted        
+        
+- hosts: localhost
+  tasks: 
+    - name: Delete pub keys off ansible
+      file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /root/.ssh/privkey.pem
+        - /root/.ssh/privkey.pem.pub
+  
+    - name: convert .pem to .ppk
+      command: pwsh /root/ssh-keygen.ps1
+              
+    - name: Set 700 permission on new keys
+      file:
+        path: /etc/ansible/keys/
+        owner: root
+        group: root
+        mode: 'u=rwx,g=,o='
+        recurse: 'yes'    
+    
+    - name: Transfer keys to FreeNAS
+      become: true
+      shell: /root/scpkeys.sh
