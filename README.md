@@ -90,6 +90,7 @@ Store office computers are thin clients that just connect to their data processi
 <h2>HDD backup.ps1</h2>
 
 Background: 
+
 When a cash register has issues, we try to troubleshoot it for a day. If the issue takes longer than that to resolve, we just send a field vendor out to swap the hard drive with a fresh image so they wont be down a cash register for an extended time. When these replacements are about to take place, the field vendor will call us to let us know so we can back up the sales files for that register. Many of my co workers were either too lazy or uncaring to read each step on the KB document which leads to improper backups. This wasnt entirely critical as the data was alerady backed up to a corporate server, but when that happens it could take a month for corporate office to get accurate sales data for this store. So we had to back up 3 differnt files to another server and then move them once more, and rename them. This was a tedious process that many associates messed up so I scripted it to do it all in one motion. I took it a step further as well to create a secondary backup in case any files were corrupt or failed to transmit, and a scheduled task to delete this secondary backup to prevent clutter of multiple unneeded backups. 
 
 
@@ -104,7 +105,7 @@ When a cash register has issues, we try to troubleshoot it for a day. If the iss
 
 Background: 
 
-My friend is a live stream on twitch.tv. 
+My friend is a live streamer on twitch.tv. 
 Twitch.tv has a chat feature, and people set up bots to make chat interactive. My friend plays music during her stream and many times someone will say in chat "OOO I like this song whats it called?"
 I could not figure out how to scrape spotify api directly but I found out spotify can be linked to last.fm. last.fm has an api that can be scraped so I scraped the api and just saved the data to a blank page on my web server. Now when someone typed in "!song" into my friends chatroom, the bot would read that blank page that contained nothing but title and artist name and then print the results in the chatroom. "Now playing Rap God by Eminem" 
 I also made a command for !lastsong that would just say what the previous song playing was. 
