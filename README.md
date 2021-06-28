@@ -104,7 +104,7 @@ When a cash register has issues, we try to troubleshoot it for a day. If the iss
 
 Background: 
 
-My friend is a live stream on twitch.tv
+My friend is a live stream on twitch.tv. 
 Twitch.tv has a chat feature, and people set up bots to make chat interactive. My friend plays music during her stream and many times someone will say in chat "OOO I like this song whats it called?"
 I could not figure out how to scrape spotify api directly but I found out spotify can be linked to last.fm. last.fm has an api that can be scraped so I scraped the api and just saved the data to a blank page on my web server. Now when someone typed in "!song" into my friends chatroom, the bot would read that blank page that contained nothing but title and artist name and then print the results in the chatroom. "Now playing Rap God by Eminem" 
 I also made a command for !lastsong that would just say what the previous song playing was. 
