@@ -163,3 +163,12 @@ Background:
 Similar to darts.js, this will "spin" a slot machine. It chooses 3 random emojis and depending on the match it rewards them with a currency that is availble to collect within the chatroom where they can use it to gamble even more or redeem items with. 
 
  
+<h2>Keys.yml</h2>
+
+Background: Ansible book to re generate ssh keys and deploy them to my virtual machines.
+
+
+
+<h2>ssh.yml</h2>
+
+Background: Scrub default ssh configs on newly deployed VMs
