@@ -2,6 +2,7 @@
 
 <h1>Preface: </h1>
 
+Here is a repo of scripts I have made. 
 As anyone looks through these scripts they will probably say "Why did you even need this script theres a million programs that do it already."
 I was a level 1 help desk employee so I had no voice in what programs should be implemented or what processes should be changed. All I could do is work with what I had access to which was powershell. I also started writing most of these scripts with 0 experience in powershell/js/python. After ~2 years of making scripts, I see many things that could be changed within these scripts or lines that will make any reader with some development knowledge say "lmao what is this???" but I do not maintain them anymore.
 
