@@ -1,0 +1,43 @@
+- hosts: all
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    - name: Lock down sshd with good defaults
+      become: true
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '{{ item.regexp }}'
+        line: '{{ item.line }}'
+        validate: /usr/sbin/sshd -t -f %s
+      loop:
+        - regexp: '(?i)^#?PermitRootLogin'
+          line: PermitRootLogin prohibit-password
+        - regexp: '(?i)^#?PermitEmptyPasswords'
+          line: PermitEmptyPasswords no
+        - regexp: (?i)^#?'Protocol'
+          line: Protocol 2
+        - regexp: '(?i)^#?PermitUserEnvironment'
+          line: PermitUserEnvironment no
+        - regexp: '(?i)^#?useprivilegeseparation'
+          line: >-
+            UsePrivilegeSeparation {{ (ansible_distribution_major_version ==
+            '6')|ternary('yes','sandbox') }} 
+        - regexp: '(?i)^#?gssapiauthentication'
+          line: GSSAPIAuthentication no
+        - regexp: '(?i)^#?compression'
+          line: 'Compression {{ sshd_compression|default(''delayed'') }}'
+        - regexp: '(?i)^#?MaxAuthTries'
+          line: MaxAuthTries 4
+        - regexp: '(?i)^#?ClientAliveInterval'
+          line: ClientAliveInterval 30
+        - regexp: '(?i)^#?ClientAliveCountMax'
+          line: ClientAliveCountMax 20
+        - regexp: '(?i)^#?PasswordAuthentication'
+          line: PasswordAuthentication no
+        - regexp: '^UsePAM yes'
+          line: UsePAM no
+    - name: Restart SSH
+      become: true
+      service:
+        name: sshd
+        state: restarted
