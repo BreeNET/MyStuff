@@ -76,7 +76,7 @@ It copies the info the agents clipboard so all they have to do is paste it to th
 
 Background: 
 
-Cash registers can have multiple issues. They can have the wrong system time, they can be frozen mid transaction, the local windows account that is supposed to autologin (the employees arent even aware of this account) will sometiems lock itself out, the oracle DB that runs the cash register software can have a variety of different sql errors with different fixes for each, it deletes satatys files as sometimes they are left behind as artifacts, and sometimes they just need a reboot first thing in the morning. This script is just a control panel to run each of those functions on one or all registers depending on the callers request. 
+Cash registers can have multiple issues. They can have the wrong system time, they can be frozen mid transaction, the local windows account that is supposed to autologin (the employees arent even aware of this account) will sometiems lock itself out, the oracle DB that runs the cash register software can have a variety of different sql errors with different fixes for each, it deletes status files as sometimes they are left behind as artifacts, and sometimes they just need a reboot first thing in the morning. This script is just a control panel to run each of those functions on one or all registers depending on the callers request. 
 
 
 
