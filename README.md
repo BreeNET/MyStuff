@@ -13,7 +13,7 @@ I was a level 1 help desk employee so I had no voice in what programs should be 
 Background: 
 
 Retail locations each have their own independent CCTV system that is accessed by multiple employees daily. The employees that investigate CCTV footage would call in because they could not playback or burn video. 
-This was due to the C drive being full on the local cctv system operating at that store. The drive would fill up because the program has a heavy cache, and employees would save footage to their desktop on a 200GB C drive rather than using their 4TB network share. Our process was to delete contents out of %appdata% for each user and delete user profiles that have not logged in for over 90 days. I took this a step further by creating a user folder for them on the network drive and copying video from user/videos or user/desktop to the network drive. 
+This was due to the C drive being full on the local cctv system operating at that store. The drive would fill up because the program has a heavy cache, and employees would save footage to their desktop on a 200GB C drive rather than using their 16TB network share. Our process was to delete contents out of %appdata% for each user and delete user profiles that have not logged in for over 90 days. I took this a step further by creating a user folder for them on the network drive and copying video from user/videos or user/desktop to the network drive. 
 
 
 <h2>CP3000_regen.ps1</h2>
