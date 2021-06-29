@@ -4,7 +4,7 @@
 
 Here is a repo of scripts I have made. 
 As anyone looks through these scripts they will probably say "Why did you even need this script theres a million programs that do it already."
-I was a level 1 help desk employee so I had no voice in what programs should be implemented or what processes should be changed. All I could do is work with what I had access to which was powershell. I also started writing most of these scripts with 0 experience in powershell/js/python. After ~2 years of making scripts, I see many things that could be changed within these scripts or lines that will make any reader with some development knowledge say "lmao what is this???" but I do not maintain them anymore.
+I was a level 1 help desk employee so I had no voice in what programs should be implemented or what processes should be changed. All I could do is work with what I had access to which was powershell. I also started writing most of these scripts with 0 experience in powershell/js/python. After ~2 years of making scripts, I see many things that could be changed within these scripts or lines that will make any reader with some development knowledge say "what is this why did you do it this way???" but I do not maintain them anymore.
 
 
 
@@ -68,7 +68,7 @@ Background:
 
 Store card readers / debit pin pads break a lot due to various software/hardware issues. 
 Stores will call us and tell us the cash register is not accepting card payments. Our process for this was to reboot the register as the DPP was powered by the register so it reboots both. Then we have to ping the pinpad and make sure its online, we have to delete the pairing file off the register, have the caller run the pairing process and we have to ensure specific services are running on register and the server that the register talks to. This script will test if the pinpad is reachable, it will delete the pair file and it will reboot the register. 
-It copies the info the agents clipboard so all they have to do is paste it to their ticket notes and see the results themselves and go from there. If its not pinging have caller check ethernet cable. If this service cant start then check it out and see why its failing to start. Most of the time rebooting and deleting the pairing file will suffice. This turns this long manuall process into one click. 
+It copies the info the agents clipboard so all they have to do is paste it to their ticket notes and see the results themselves and go from there. If its not pinging have caller check ethernet cable. If this service cant start then check it out and see why its failing to start. Most of the time rebooting and deleting the pairing file will suffice. This turns a long manual collection process into one click. 
 
 
 
