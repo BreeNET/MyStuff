@@ -154,7 +154,7 @@ My friend likes seeing all kinds of different discord emojis and wants some of t
 
 Background: 
 
-My friend is a live streamer on twitch. I created this darts game in js so viewers can type in !darts in his chat and then it will pop up with a randon number. "$user threw a dart and hit {randomNumber} 1/1000." If the rng generates <= 50, it has a chance of hitting a bullseye. If a user hits a bullseye, it grants them a roll on an array of items that they can win. "User hit a bullseye and they received a ZGS." Now the streamer has to meet them in game and give the winner the prize they won. This increases viwer engagement for the streamer resulting in more viewers and a more active chat room. 
+My friend is a live streamer on twitch. I created this darts game in js so viewers can type in !darts in his chat and then it will pop up with a randon number. "$user threw a dart and hit {randomNumber}" from 1/1000. If the rng generates <= 50, it has a chance of hitting a bullseye. If a user hits a bullseye, it grants them a roll on an array of items that they can win. "User hit a bullseye and they received a ZGS." Now the streamer has to meet them in game and give the winner the prize they won. This increases viwer engagement for the streamer resulting in more viewers and a more active chat room. 
 
 
 <h2>Slots.js</h2>
